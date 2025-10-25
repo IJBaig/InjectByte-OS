@@ -3,6 +3,8 @@
 #include "memory/heap/kheap.h"
 #include "memory/paging/paging.h"
 #include "disk/disk.h"
+#include "fs/pparser.h"
+#include "string/string.h"
 
 uint16_t* video_mem = 0;
 uint16_t terminalRow = 0;
@@ -32,15 +34,6 @@ void terminal_initialize()
 uint16_t terminal_make_char(char c, char color)
 {
 	return (color << 8) | c;
-}
-size_t strlen(const char* str)
-{
-	size_t len = 0;
-	while(str[len])
-	{
-		len++;
-	}
-	return len;
 }
 void terminalPutChar(int x, int y, char c, char color)
 {
