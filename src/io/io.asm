@@ -35,7 +35,7 @@ outb:
 	mov edx, [ebp+8]
 	out dx, al
 
-	pop ebx
+	pop ebp
 	ret
 
 outw:

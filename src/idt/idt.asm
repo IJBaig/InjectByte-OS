@@ -35,7 +35,7 @@ int21h:
 
 no_interrupt:
 	cli
-	pudhad
+	pushad
 	call no_interrupt_handler
 	popad
 	sti

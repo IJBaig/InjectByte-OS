@@ -1,6 +1,7 @@
 #ifndef DISK_H
 #define DISK_H
 
+#include "fs/file.h"
 typedef unsigned int INJECTBYTE_DISK_TYPE;
 
 // Representing a real Physical Hard disk
@@ -10,6 +11,7 @@ struct disk
 {
 	INJECTBYTE_DISK_TYPE type;
 	int sector_size;
+	struct filesystem* filesystem;
 };
 
 

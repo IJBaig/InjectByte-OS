@@ -6,4 +6,6 @@ int strlen(const char*);
 bool isdigit(char);
 int tonumericdigit(char);
 int strnlen(const char*, int);
+char* strcpy(char* dest, const char* src);
+
 #endif
