@@ -8,7 +8,7 @@ InjectByte-OS is a low-level operating system project built from the ground up i
 
 ## About
 
-This project aims to provide hands-on experience in building a kernel from scratch, gradually introducing learners to real mode and protected mode development, as well as assembly programming.
+Just Curious About how The OS works. So why not make one Yourself. 
 
 ### Key Concepts Covered
 - Boot process and real mode setup
@@ -27,6 +27,8 @@ This project aims to provide hands-on experience in building a kernel from scrat
 - Knowledge of **C programming**
 - Basic understanding of **x86 Assembly**
 - Familiarity with command-line tools (optional but helpful)
+- Download a C Cross Compiler "Must Find how? if You wanna Learn"
+
 
 ---
 
@@ -44,17 +46,21 @@ This project aims to provide hands-on experience in building a kernel from scrat
 
 ## Getting Started
 
-1. Clone the repository:
+1. Cross Compiler
+  ``` bash
+Edit build.sh File according to Compiler's Path
+  ```
+2. Clone the repository:
    ```bash
    git clone https://github.com/IJBaig/InjectByte-OS.git
    cd InjectByte-OS
    ```
-2. Build the kernel:
+3. Build the kernel:
   ```bash
 make clean
 ./build.sh
   ```
-3. Run in QEMU:
+4. Run in QEMU:
   ```bash
 qemu-system-i386 -kernel bin/os.bin
   ```
@@ -78,7 +84,7 @@ qemu-system-i386 -kernel bin/os.bin
 Special thanks to my mentor and instructor, **Daniel McCarthy** , whose guidance and course materials were invaluable in developing this kernel project.
 ## License
 
-This project is licensed under the LICENSE file
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
 
 
 
