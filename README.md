@@ -8,7 +8,7 @@ InjectByte-OS is a low-level operating system project built from the ground up i
 
 ## About
 
-Just Curious About how The OS works. So why not make one Yourself. 
+Just Curious About how The OS works. So why not make one Yourself. Blah Blah Blah Just read the **Prerequisites and Getting Started** Portion.
 
 ### Key Concepts Covered
 - Boot process and real mode setup
@@ -46,24 +46,24 @@ Just Curious About how The OS works. So why not make one Yourself.
 
 ## Getting Started
 
-1. Cross Compiler
-  ``` bash
-Edit build.sh File according to Compiler's Path
-  ```
-2. Clone the repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/IJBaig/InjectByte-OS.git
    cd InjectByte-OS
    ```
+2. Cross Compiler
+   ``` bash
+   Edit build.sh File according to Compiler's Path
+   ```   
 3. Build the kernel:
-  ```bash
-make clean
-./build.sh
-  ```
+   ```bash
+   make clean
+   ./build.sh
+   ```
 4. Run in QEMU:
-  ```bash
-qemu-system-i386 -kernel bin/os.bin
-  ```
+   ```bash
+   qemu-system-i386 -kernel bin/os.bin
+   ```
 ## Learning Outcomes
 
   ### By exploring this project, you will gain hands-on experience in:
@@ -85,6 +85,3 @@ Special thanks to my mentor and instructor, **Daniel McCarthy** , whose guidance
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE
-
-
-
