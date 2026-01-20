@@ -1,3 +1,7 @@
+#Still Working...
+
+
+
 # InjectByte-OS
 
 **Developing a Multithreaded Kernel from Scratch**
@@ -38,6 +42,7 @@ Just Curious About how The OS works. So why not make one Yourself. Blah Blah Bla
 - Protected mode kernel
 - Interrupt Descriptor Table (IDT) implementation
 - Paging and heap memory management
+- FAT 16 File system
 - Simple multitasking and scheduling
 - Disk and keyboard drivers
 - ELF file loading support
@@ -53,7 +58,7 @@ Just Curious About how The OS works. So why not make one Yourself. Blah Blah Bla
    ```
 2. Cross Compiler
    ``` bash
-   Edit build.sh File according to Compiler's Path
+   Edit build.sh File according to Your Compiler Path
    ```   
 3. Build the kernel:
    ```bash
@@ -81,7 +86,7 @@ Just Curious About how The OS works. So why not make one Yourself. Blah Blah Bla
   - Debugging using emulators and GDB
 
 ## Credits
-Special thanks to my mentor and instructor, **Daniel McCarthy** , whose guidance and course materials were invaluable in developing this kernel project.
+Special thanks to my mentor and instructor, [Daniel McCarthy](https://github.com/nibblebits) , whose guidance and course materials were invaluable in developing this kernel project.
 ## License
 
-This project is licensed under the GNU GENERAL PUBLIC LICENSE
+This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE)

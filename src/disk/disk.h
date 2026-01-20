@@ -11,7 +11,9 @@ struct disk
 {
 	INJECTBYTE_DISK_TYPE type;
 	int sector_size;
+	int id; //disk id
 	struct filesystem* filesystem;
+	void* fs_private; // private data of file system 
 };
 
 

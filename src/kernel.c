@@ -69,10 +69,15 @@ void print(const char* str)
 }
 static struct paging_4gb_chunk* kernel_chunk = 0;
 
+void panic(const char* msg)
+{
+	print(msg);
+	while(1) {}
+}
+
 void kernel_main()
 {
 	terminal_initialize();
-
 	// initialize the heap
 	kheap_init();
 
@@ -92,10 +97,20 @@ void kernel_main()
 	// Enable Paging
 	enable_paging();
 
-
-
 	// Enable system interrupts
 	enable_interrupts();
+	int fd = fopen("0:/hello.txt", "r");
+	if (fd)
+	{
+		print("WE Opened hello.txt\n");
+		char buf[14];
+		fseek(fd, 2, SEEK_SET);
+		fread(buf, 11, 1, fd);
+		buf[13] = 0x00;
+		print(buf);
+		fclose(fd);
+		print("fileclosed");
+	}
 
 	while(1){}
 
