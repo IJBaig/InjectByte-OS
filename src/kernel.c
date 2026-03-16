@@ -11,7 +11,9 @@
 #include "config.h"
 #include "memory/memory.h"
 #include "task/tss.h"
-
+#include "task/task.h"
+#include "task/process.h"
+#include "status.h"
 uint16_t* video_mem = 0;
 uint16_t terminalRow = 0;
 uint16_t terminalCol = 0;
@@ -78,6 +80,13 @@ void panic(const char* msg)
 	print(msg);
 	while(1) {}
 }
+
+void kernel_page()
+{
+    kernel_registers();
+    paging_switch(kernel_chunk);
+}
+
 struct tss tss;
 struct gdt gdt_real[INJECTBYTE_TOTAL_GDT_SEGMENTS];
 struct gdt_structured gdt_structured[INJECTBYTE_TOTAL_GDT_SEGMENTS] = {
@@ -122,25 +131,19 @@ void kernel_main()
 	// Setup Paging
 	kernel_chunk = paging_new_4gb(PAGING_IS_WRITEABLE | PAGING_IS_PRESENT | PAGING_ACCESS_FROM_ALL);
 	// switch to kernel Paging switch
-	paging_switch(paging_4gb_chunk_get_directory(kernel_chunk));
+	paging_switch(kernel_chunk);
 	// Enable Paging
 	enable_paging();
 
-	// Enable system interrupts
-	enable_interrupts();
-	int fd = fopen("0:/hello.txt", "r");
-	if (fd)
+	struct process* process = 0;
+	int res = process_load("0:/blank.bin", &process);
+	if(res != INJECTBYTE_ALL_OK)
 	{
-		print("WE Opened hello.txt\n");
-		char buf[14];
-		fseek(fd, 2, SEEK_SET);
-		fread(buf, 11, 1, fd);
-		buf[13] = 0x00;
-		print(buf);
-		fclose(fd);
-		print("fileclosed");
+		panic("Failed to load Blank.bin");
 	}
 
+	task_run_first_ever_task();
+	
 	while(1){}
 
 
